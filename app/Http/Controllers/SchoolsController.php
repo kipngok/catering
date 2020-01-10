@@ -15,6 +15,9 @@ class SchoolsController extends Controller
     public function index()
     {
         //
+    $school = School::latest()->paginate(5);
+        return view('school.index',compact('school'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -35,8 +38,15 @@ class SchoolsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //      'id','name'
+
+        $request->validate([
+         'name' = 'required'
+     ]);
+        School::($request->all());
+        return redirect()->route('invoice.index')->with('success','school created successfully')
     }
+
 
     /**
      * Display the specified resource.

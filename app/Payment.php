@@ -17,18 +17,6 @@ class Payment extends Model
     }
       
 
-    //    public function student()
-    // {
-    //     return $this->hasMany('App\Student', 'student_id', 'id');
-    // }
-    // 	 public function student()
-    // {
-    //     return $this->hasOne('App\Student', 'student_id', 'id');
-    // }
 
-    //    public function user()
-    // {
-    //     return $this->hasMany('App\User', 'user_id', 'id');
-    // }
 }
  

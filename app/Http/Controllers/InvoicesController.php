@@ -15,6 +15,10 @@ class InvoicesController extends Controller
     public function index()
     {
         //
+
+        $invoice = Invoice::latest()->paginate(5);
+        return view('invoice.index',compact('invoce'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -35,8 +39,22 @@ class InvoicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           $request->validate([
+            'student_id' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'lunch' => 'required',
+             'tea' => 'required',
+            'amount' => 'required',
+            'balance' => 'required',
+            'narrative' => 'required',
+             'user_id' => 'required',
+        ]);
+            Invoice::create($request->all());
+          return redirect()->route('invoice.index')
+        ->with('success','invoice created successfully.');
     }
+     
 
     /**
      * Display the specified resource.

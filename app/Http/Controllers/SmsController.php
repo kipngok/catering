@@ -15,6 +15,9 @@ class SmsController extends Controller
     public function index()
     {
         //
+          $sms = School::latest()->paginate(5);
+        return view('sms.index',compact('sms'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
