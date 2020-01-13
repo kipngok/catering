@@ -44,11 +44,11 @@ class InvoicesController extends Controller
             'date' => 'required',
             'time' => 'required',
             'lunch' => 'required',
-             'tea' => 'required',
+            'tea' => 'required',
             'amount' => 'required',
             'balance' => 'required',
             'narrative' => 'required',
-             'user_id' => 'required',
+            'user_id' => 'required',
         ]);
             Invoice::create($request->all());
           return redirect()->route('invoice.index')

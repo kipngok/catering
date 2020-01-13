@@ -6,18 +6,18 @@
 <title>School</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Allerta&display=swap" rel="stylesheet">
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Open+Sans&display=swap" rel="stylesheet"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<style type="text/css">
-    .bs-example{
-        margin: 20px;
-    }
 </style>
+ <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-<div class="bs-example">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+<body style="background-color: #ecf0f5">
+<div style="margin: 0px;">
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 50px; z-index: 1;">
         <a href="#" class="navbar-brand">Logo</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -25,39 +25,9 @@
 
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Dashboard</a>
-                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Invoice</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Create Invoice</a>
-                       <!--  <a href="#" class="dropdown-item"></a>
-                        <a href="#" class="dropdown-item">Drafts</a> -->
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">School</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Create</a>
-                       <!--  <a href="#" class="dropdown-item">Sent</a>
-                        <a href="#" class="dropdown-item">Drafts</a> -->
-                    </div>
-                </div>
-                   <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Students</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Create</a>
-                       <!--  <a href="#" class="dropdown-item">Sent</a>
-                        <a href="#" class="dropdown-item">Drafts</a> -->
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Inbox</a>
-                        <a href="#" class="dropdown-item">Sent</a>
-                        <a href="#" class="dropdown-item">Drafts</a>
-                    </div>
-                </div>
+               
+               
+        
             </div>
         
             <div class="navbar-nav">
@@ -95,9 +65,51 @@
             </div>
         </div>
     </nav>
-     <main class="py-4">
-            @yield('content')
-        </main>
-</div>
+
+    <!-- sidebar -->
+      <div class="row" style="width:100%">
+                <div class="sidebar">
+                    <ul class="sidebar-menu" style="list-style: none; padding: 0px;">
+                    <li><a href="{{ route('home') }}" class="navio"> Dashboard</a></li>
+                     <li><a href="#" class="navio"> Invoice</a></li>
+                   <li  data-toggle="collapse" data-target="#student" class="navio">
+                 Students 
+                  <span class="arrow"></span>
+                   </li>
+                     <ul class="sub-menu collapse" id="student">
+                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Create student</a>
+                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Edit student</a>
+                   
+                </ul>
+                 <li  data-toggle="collapse" data-target="#sms" class="navio">
+                  
+                  SMS 
+                  <span class="arrow"></span>
+                   </li>
+                     <ul class="sub-menu collapse" id="sms">
+                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Inbox</a>
+                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Sent</a>
+                   </ul>
+                <li>
+        <a href="{{ route('schools.index') }}" class="navio">School</a></li>
+                       
+                        <li><a href="#" class="navio"><i class="fa fa-envelope"></i> Emails</a></li>
+                        <li><a href="#" class="navio"><i class="fa fa-user"></i> View users</a></li>
+                        </ul>
+                </div>
+                
+            </div>
+          </div>
+
+  <div  style="width:calc(100% - 200px);  margin-left:180px; float:left; ">
+                    <div class="cont" style="padding-top:20px; padding-left: 20px;">
+                    @yield('content')
+                </div>
+                
+                </div>
+
 </body>
+<style type="text/css">
+   
+</style>
 </html>                            

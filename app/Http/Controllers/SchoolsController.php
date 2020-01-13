@@ -15,8 +15,8 @@ class SchoolsController extends Controller
     public function index()
     {
         //
-    $school = School::latest()->paginate(5);
-        return view('school.index',compact('school'))
+    $schools = School::latest()->paginate(5);
+        return view('schools.index',compact('schools'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -28,6 +28,9 @@ class SchoolsController extends Controller
     public function create()
     {
         //
+
+
+         return view('schools.create');
     }
 
     /**
@@ -38,13 +41,17 @@ class SchoolsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd('here');
+         $request->validate([
+            'name' => 'required'
+        ]);
+  
+        School::create($request->all());
+   
+        return redirect()->route('school.index')
+                        ->with('success','School created successfully.');
         //      'id','name'
 
-        $request->validate([
-         'name' = 'required'
-     ]);
-        School::($request->all());
-        return redirect()->route('invoice.index')->with('success','school created successfully')
     }
 
 
