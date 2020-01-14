@@ -12,19 +12,23 @@
 */
 
 
-Auth::routes(['register' => false]);;
+Auth::routes();
 
 Route::group( ['middleware' => ['auth']], function()
 {
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('schools','SchoolsController');
-Route::resource('invoice','InvoicesController');
-Route::resource('students','StudentsController');
-Route::resource('payment','PaymentsController');
-
-
-
+Route::resource('/school','SchoolController');
+Route::post('/process', 'Controller@process');
+Route::get('/invoice/{school_id}/{class}/{subscription}','InvoiceController@filtered');
+Route::get('/invoice/{id}/create','InvoiceController@create');
+Route::resource('/invoice','InvoiceController');
+Route::get('/student/{school_id}/{class}/{subscription}','StudentController@filtered');
+Route::resource('/student','StudentController');
+Route::get('/payment/{id}/create','PaymentController@create');
+Route::get('/payment/{school_id}/{class}/{subscription}','PaymentController@filtered');
+Route::resource('/payment','PaymentController');
+Route::resource('/user','UserController');
 
 });
 

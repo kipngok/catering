@@ -6,7 +6,7 @@
   <h4></h4>
   </div>
 
-<div class="container" style="margin-left: -10px;">
+<div class="container" >
 <div class="row">
   <div class="col-sm-6">
     <table class="table table-condensed table-striped table-bordered">

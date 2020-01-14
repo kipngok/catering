@@ -3,7 +3,10 @@
 
 
 <div class="page-header">
-  <h4>User</h4>
+   <div class="row">
+    <div class="col-sm-10">   <h4>User</h4></div>
+  </div>
+
   </div>
 
 <div class="container" style="margin-left: -10px;">

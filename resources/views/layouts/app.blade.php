@@ -17,9 +17,9 @@
 </head>
 <body style="background-color: #ecf0f5">
 <div style="margin: 0px;">
-    <nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 50px; z-index: 1;">
-         <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/hotlunch2.png') }}" alt="HOTLUNCH" style="height:40px;">
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="z-index: 1;">
+         <a class="navbar-brand" href="{{ url('/') }}" style="padding: 0px;">
+                    <img src="{{ asset('img/hotlunch2.png') }}" alt="HOTLUNCH" style="height:60px;">
                 </a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -73,7 +73,6 @@
                 <div class="sidebar">
                     @include('includes.side')
                 </div>
-                
             </div>
           </div>
 

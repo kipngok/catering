@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\School;
 use Illuminate\Http\Request;
 
-class SchoolsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class SchoolsController extends Controller
     public function index()
     {
         //
-    $schools = School::orderBy('created_at','desc')->paginate(20);
-        return view('schools.index',compact('schools'));
+        $users = User::orderBy('created_at','desc')->paginate(20);
+        return view('user.index',compact('users'));
     }
 
     /**
@@ -27,7 +26,7 @@ class SchoolsController extends Controller
     public function create()
     {
         //
-         return view('schools.create');
+        return view('user.create');
     }
 
     /**
@@ -38,71 +37,69 @@ class SchoolsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('here');
-         $request->validate([
-            'name' => 'required'
-        ]);
-  
-        $school=School::create($request->all());
-        return redirect('/school/'.$school->id);
-        //      'id','name'
+        //
+        $input=$request->all();
+        $input['password']=Hash::make($input['password']);
+        $user=User::create($input);
+        return redirect('/user/'.$user->id);
 
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(School $school)
+    public function show($id)
     {
         //
-        $school=School::find($id);
-        return view('school.show', compact('school'));
+        $user=User::find($id);
+        return view('user.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(School $school)
+    public function edit($id)
     {
         //
-        $school=School::find($id);
-        return view('school.edit', compact('school'));
+        $user=User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, School $school)
+    public function update(Request $request, $id)
     {
         //
-        $school=School::find($id);
+        $user=User::find($id);
         $input=$request->all();
-        $school->update($input);
-        return redirect('/school/'.$school->id);
+        if(isset($input['password'])){
+        $input['password']=Hash::make($input['password']);}
+        $user->update($input);
+        return redirect('/user/'.$user->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\School  $school
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(School $school)
+    public function destroy($id)
     {
         //
-        $school=School::find($id);
-        $school->delete();
-        return redirect('/school');
+        $user=User::find($id);
+        $user->delete();
+        return redirect('/user');
     }
 }

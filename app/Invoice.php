@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
-   // protected $table 'invoice';
+   protected $table='invoice';
 
      protected  $fillable  = [
-    	'id','student_id','date','time','lunch','tea','amount','balance','narrative','user_id'
+    	'id','student_id','date','time','lunch','tea','amount','balance','narrative','user_id','status'
       ];
 
 	public function student(){

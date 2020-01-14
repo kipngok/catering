@@ -1,6 +1,9 @@
  body{
   font-family: 'Allerta', sans-serif;
  }
+ .row {
+margin: 0;
+}
  .sidebar{
   padding-top: 100px;
 }
@@ -45,4 +48,10 @@
 .bg-light {
     background-color: #fff!important;
   }
-  
+  .table {
+  padding: 20px; 
+  width: 100%;
+  color: 
+#212529;
+margin-left: 10px;
+}

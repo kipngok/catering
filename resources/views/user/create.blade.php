@@ -3,10 +3,13 @@
 
 
 <div class="page-header">
-  <h4>Create user</h4>
+	 <div class="row">
+    <div class="col-sm-10"><h4>Create user</h4></div>
+  </div>
+ 
   </div>
 
-<div class="container" style="margin-left: -10px;">
+<div class="container">
 <div class="row">
 	<div class="col-sm-6">
 		<form action="/user" method="POST">

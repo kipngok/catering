@@ -19,8 +19,8 @@ class CreatePaymentTable extends Migration
             $table->string('date');
             $table->string('time');
             $table->string('payment_mode');
-            $table->string('code');
-            $table->string('narrative');
+            $table->string('code')->nullable();
+            $table->string('narrative')->nullable();
             $table->string('user_id');
             $table->integer('amount');
             $table->timestamps();

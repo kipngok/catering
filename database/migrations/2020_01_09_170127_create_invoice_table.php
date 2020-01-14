@@ -14,7 +14,7 @@ class CreateInvoiceTable extends Migration
     public function up()
     {
         
-        Schema::create('invoices', function (Blueprint $table) {
+        Schema::create('invoice', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('student_id');
             $table->date('date');
@@ -23,8 +23,9 @@ class CreateInvoiceTable extends Migration
             $table->string('tea')->nullable();
             $table->integer('amount');
             $table->integer('balance');
-            $table->string('narrative');
+            $table->string('narrative')->nullable();
             $table->string('user_id');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -3,8 +3,12 @@
 
 
 <div class="page-header">
-  <h4>Users</h4>
-  <a href="/user/create" class="btn btn-sm btn-warning"> <i class="fa fa-plus"></i> Add new</a>
+	 <div class="row">
+    <div class="col-sm-10"> <h4>Users</h4></div>
+     <div class="col-sm-2">  <a href="/user/create" class="btn btn-sm btn-warning"> <i class="fa fa-plus"></i> Add new</a></div>
+  </div>
+ 
+ 
   </div>
 
 <div class="container" style="margin-left: -10px;">

@@ -1,9 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="page-header">
+   <div class="row">
+    <div class="col-sm-10"><h4>Create payment</h4></div>
+  </div>
   <h4>Create payment</h4>
   </div>
-<div class="container" style="margin-left: -10px;">
+<div class="container">
 <div class="row">
   <div class="col-sm-6">
     <form action="/payment/{{$payment->id}}" method="POST">
@@ -17,11 +20,11 @@
 
       <div class="form-group">
         <label>Date</label>
-        <input type="date" name="name" class="form-control" value="{{$payment->date}}">
+        <input type="date" name="date" class="form-control" value="{{$payment->date}}">
       </div>
       <div class="form-group">
         <label>Time</label>
-        <input type="time" name="name" class="form-control" value="{{$payment->time}}">
+        <input type="time" name="time" class="form-control" value="{{$payment->time}}">
       </div>
       <div class="form-group">
         <label>Narrative</label>

@@ -3,10 +3,13 @@
 
 
 <div class="page-header">
-  <h4>Student</h4>
+    <div class="row">
+    <div class="col-sm-10"><h4>Student</h4></div>
+  </div>
+ 
   </div>
 
-<div class="container" style="margin-left: -10px;">
+<div class="container">
 <div class="row">
   <div class="col-sm-6">
   		<table class="table table-condensed table-striped table-bordered">
@@ -48,6 +51,10 @@
   					@endif
   					</td>
   			</tr>
+        <tr>
+          <th>Balance</th>
+          <td>{{number_format($student->balance,2)}}</td>
+        </tr>
   		</tbody>
   	</table>
   	<form action="/student/{{$student->id}}" method="POST">

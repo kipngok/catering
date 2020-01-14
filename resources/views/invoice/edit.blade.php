@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="page-header">
-  <h4>Create invoice</h4>
+  <div class="row">
+    <div class="col-sm-10"><h4>Create invoice</h4></div>
+  </div>
+  
   </div>
 <div class="container" style="margin-left: -10px;">
 <div class="row">
@@ -17,11 +20,11 @@
       </div>
       <div class="form-group">
         <label>Date</label>
-        <input type="date" name="name" class="form-control" value="{{$invoice->date}}">
+        <input type="date" name="date" class="form-control" value="{{$invoice->date}}">
       </div>
       <div class="form-group">
         <label>Time</label>
-        <input type="time" name="name" class="form-control" value="{{$invoice->time}}">
+        <input type="time" name="time" class="form-control" value="{{$invoice->time}}">
       </div>
       <div class="form-group">
         <label>Narrative</label>
@@ -29,12 +32,12 @@
       </div>
       <div class="form-group">
         <label>Lunch</label>
-        <input type="number" name="lunch" class="form-control" id="lunch" value="{{$invoice->lunch}}">
+        <input type="number" name="lunch" class="form-control" id="lunch" value="{{$invoice->lunch}}" @if($student->takes_lunch !=1) readonly="readonly" @endif>
       </div>
 
       <div class="form-group">
         <label>Tea</label>
-        <input type="number" name="tea" class="form-control" id="tea" value="{{$invoice->tea}}">
+        <input type="number" name="tea" class="form-control" id="tea" value="{{$invoice->tea}}" @if($student->takes_tea !=1) readonly="readonly" @endif>
       </div>
 
       <div class="form-group">
