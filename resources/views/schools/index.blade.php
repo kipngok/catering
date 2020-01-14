@@ -2,28 +2,38 @@
 @section('content')
 
 
-<div class="container" style="margin-left: -10px;"  >
-	<div class="row">
-		<div  style="margin-left: 10px;" >
-			<h4>Schools</h4>
-		</div>
-		<div  style="margin-left: 25px;">
-	<button onclick="window.location.href = '{{ route('schools.create') }}';" style="background-color: #6da252;"><i class="fa fa-plus"></i>Add New</button>
-		</div>
-		<div  style="margin-left: 10px;">
-			<button><i class="fa fa-download" aria-hidden="true"></i>Import</button>
-		</div>
-		<div  style="margin-left: 10px;">
-			<button><i class="fa fa-upload" aria-hidden="true"></i>Export</button>
-		</div>
-	</div>
-<div class="card" style="border-top-color:#6da252;">
-   <div class="card-body">
-   	<h1>r</h1>
-   	<h3>t</h3>
-   </div> 
-   
+<div class="page-header">
+  <h4>Schools</h4>
+  <a href="{{ route('schools.create') }}" class="btn btn-sm btn-warning"> <i class="fa fa-plus"></i> Add new</a>
   </div>
+
+<div class="container" style="margin-left: -10px;">
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-condensed table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Address</th>
+					<th>Email</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($schools as $school)
+				<tr>
+					<td>{{$school->name}}</td>
+					<td>{{$school->address}}</td>
+					<td>{{$school->email}}</td>
+					<td><a href="/school/{{$school->id}}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> view</a></td>
+				</tr>
+				@endforeach
+
+			</tbody>
+		</table>
+						{{$schools->links()}}
+	</div>
+</div>
 </div>
 
 @endsection

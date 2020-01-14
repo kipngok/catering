@@ -1,11 +1,20 @@
+ body{
+  font-family: 'Allerta', sans-serif;
+ }
  .sidebar{
   padding-top: 100px;
+}
+.page-header{
+  background-color: #ddd; 
+  padding: 20px; 
+  width: 100%;
+  margin-bottom: 20px;
 }
 .sidebar{
   width:200px;
   float:left;
   position:fixed;
-  background-color:#f9fafc;
+  background-color:#b5b1b1;
   height:100vh;
   margin-top: -70px;
   
@@ -13,7 +22,6 @@
 .navio{
   color: #242425;
   padding:10px;
-  
   padding-left: 30px;
   display: block;
   width: calc(100% - 20px);
@@ -26,39 +34,15 @@
  
  text-decoration: none;
  color: #000;
- border-top-left-radius:20px;
- border-bottom-left-radius:20px;
  background-color: #FFF;
 }
 .navio.active{
  
  text-decoration: none;
  color: #000;
- border-top-left-radius:20px;
- border-bottom-left-radius:20px;
  background-color: #FFF;
 }
 .bg-light {
-    background-color: #6da252!important;
+    background-color: #fff!important;
   }
-  .divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
+  

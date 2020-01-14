@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Invoice;
 use App\Payment;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,8 @@ class PaymentsController extends Controller
     {
         //
 
-        $payment = Invoice::latest()->paginate(5);
-        return view('payment.index',compact('payment'))
+        $payments = Invoice::latest()->paginate(5);
+        return view('payment.index',compact('payments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

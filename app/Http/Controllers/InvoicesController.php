@@ -17,7 +17,7 @@ class InvoicesController extends Controller
         //
 
         $invoice = Invoice::latest()->paginate(5);
-        return view('invoice.index',compact('invoce'))
+        return view('invoice.index',compact('invoice'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -29,6 +29,7 @@ class InvoicesController extends Controller
     public function create()
     {
         //
+        return view('invoice.create');
     }
 
     /**

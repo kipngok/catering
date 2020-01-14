@@ -19,6 +19,11 @@ Route::group( ['middleware' => ['auth']], function()
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('schools','SchoolsController');
+Route::resource('invoice','InvoicesController');
+Route::resource('students','StudentsController');
+Route::resource('payment','PaymentsController');
+
+
 
 
 });

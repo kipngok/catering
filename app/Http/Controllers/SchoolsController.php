@@ -15,9 +15,8 @@ class SchoolsController extends Controller
     public function index()
     {
         //
-    $schools = School::latest()->paginate(5);
-        return view('schools.index',compact('schools'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+    $schools = School::orderBy('created_at','desc')->paginate(20);
+        return view('schools.index',compact('schools'));
     }
 
     /**
@@ -28,8 +27,6 @@ class SchoolsController extends Controller
     public function create()
     {
         //
-
-
          return view('schools.create');
     }
 
@@ -46,10 +43,8 @@ class SchoolsController extends Controller
             'name' => 'required'
         ]);
   
-        School::create($request->all());
-   
-        return redirect()->route('school.index')
-                        ->with('success','School created successfully.');
+        $school=School::create($request->all());
+        return redirect('/school/'.$school->id);
         //      'id','name'
 
     }
@@ -64,6 +59,8 @@ class SchoolsController extends Controller
     public function show(School $school)
     {
         //
+        $school=School::find($id);
+        return view('school.show', compact('school'));
     }
 
     /**
@@ -75,6 +72,8 @@ class SchoolsController extends Controller
     public function edit(School $school)
     {
         //
+        $school=School::find($id);
+        return view('school.edit', compact('school'));
     }
 
     /**
@@ -87,6 +86,10 @@ class SchoolsController extends Controller
     public function update(Request $request, School $school)
     {
         //
+        $school=School::find($id);
+        $input=$request->all();
+        $school->update($input);
+        return redirect('/school/'.$school->id);
     }
 
     /**
@@ -98,5 +101,8 @@ class SchoolsController extends Controller
     public function destroy(School $school)
     {
         //
+        $school=School::find($id);
+        $school->delete();
+        return redirect('/school');
     }
 }

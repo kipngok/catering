@@ -18,7 +18,9 @@
 <body style="background-color: #ecf0f5">
 <div style="margin: 0px;">
     <nav class="navbar navbar-expand-md navbar-light bg-light" style="height: 50px; z-index: 1;">
-        <a href="#" class="navbar-brand">Logo</a>
+         <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('img/hotlunch2.png') }}" alt="HOTLUNCH" style="height:40px;">
+                </a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -69,45 +71,20 @@
     <!-- sidebar -->
       <div class="row" style="width:100%">
                 <div class="sidebar">
-                    <ul class="sidebar-menu" style="list-style: none; padding: 0px;">
-                    <li><a href="{{ route('home') }}" class="navio"> Dashboard</a></li>
-                     <li><a href="#" class="navio"> Invoice</a></li>
-                   <li  data-toggle="collapse" data-target="#student" class="navio">
-                 Students 
-                  <span class="arrow"></span>
-                   </li>
-                     <ul class="sub-menu collapse" id="student">
-                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Create student</a>
-                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Edit student</a>
-                   
-                </ul>
-                 <li  data-toggle="collapse" data-target="#sms" class="navio">
-                  
-                  SMS 
-                  <span class="arrow"></span>
-                   </li>
-                     <ul class="sub-menu collapse" id="sms">
-                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Inbox</a>
-                    <a href="#" class="navio" style="width: 110% ; margin-left: -10%">Sent</a>
-                   </ul>
-                <li>
-        <a href="{{ route('schools.index') }}" class="navio">School</a></li>
-                       
-                        <li><a href="#" class="navio"><i class="fa fa-envelope"></i> Emails</a></li>
-                        <li><a href="#" class="navio"><i class="fa fa-user"></i> View users</a></li>
-                        </ul>
+                    @include('includes.side')
                 </div>
                 
             </div>
           </div>
 
-  <div  style="width:calc(100% - 200px);  margin-left:180px; float:left; ">
-                    <div class="cont" style="padding-top:20px; padding-left: 20px;">
+  <div  style="width:calc(100% - 180px);  margin-left:180px; float:left; ">
+                    <div class="cont" style="">
                     @yield('content')
                 </div>
                 
                 </div>
 
+@yield('scripts')
 </body>
 <style type="text/css">
    

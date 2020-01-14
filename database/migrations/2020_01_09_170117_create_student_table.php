@@ -13,7 +13,7 @@ class CreateStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('student', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('class');
@@ -22,6 +22,7 @@ class CreateStudentTable extends Migration
             $table->string('parent_phone');
             $table->integer('takes_lunch')->nullable();
             $table->string('takes_tea')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
         
